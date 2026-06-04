@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interactive Portfolio Tool</title>
+<title>Folio · Interactive Portfolio Tool</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -759,7 +759,7 @@
   </div>
 
   <div class="footmeta">
-    <span id="footVersion">Portfolio Tool v1.1.0</span>
+    <span id="footVersion">Folio v1.1.0</span>
     <span class="fdot">·</span>
     <a class="flink" onclick="toggleChangelog()">What's new</a>
     <span class="fdot">·</span>
@@ -2045,7 +2045,7 @@ function downloadHtml(){
     const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
     const blob=new Blob([html],{type:'text/html'});
     const url=URL.createObjectURL(blob);
-    const a=document.createElement('a'); a.href=url; a.download='portfolio-tool-v'+VERSION+'.html';
+    const a=document.createElement('a'); a.href=url; a.download='folio-v'+VERSION+'.html';
     document.body.appendChild(a); a.click();
     setTimeout(()=>{ if(a.remove) a.remove(); URL.revokeObjectURL(url); }, 200);
   }catch(e){ const s=document.getElementById('status'); if(s) s.textContent='Download failed ('+e.message+')'; }
@@ -2433,7 +2433,7 @@ function buildPrintView(mode){
   const sec3b = escH((document.getElementById('sec3Read')||{}).textContent||'');
   document.getElementById('print-view').innerHTML = `
     <div class="pv-head">
-      <div class="pv-kicker">Interactive Portfolio Tool · Meeting summary</div>
+      <div class="pv-kicker">Folio · Meeting summary</div>
       <h1>Portfolio Snapshot</h1>
       <div class="pv-sub">As of ${dt} · values in ${displayCcy} · prices entered/refreshed in-app</div>
     </div>
@@ -2478,7 +2478,7 @@ function buildPrintView(mode){
           </table>
         </div>
       </div>
-      <div class="pv-foot">Generated from the Interactive Portfolio Tool. Figures are estimates based on the prices, yields, currencies, and purchase dates entered in the app, and include any modeled what-if or back-test data shown on screen. Long-term vs short-term labels are US tax conventions. This is an educational snapshot, not financial advice.</div>
+      <div class="pv-foot">Generated from Folio. Figures are estimates based on the prices, yields, currencies, and purchase dates entered in the app, and include any modeled what-if or back-test data shown on screen. Long-term vs short-term labels are US tax conventions. This is an educational snapshot, not financial advice.</div>
     </div>`;
 }
 function exportPdf(){ const mode=(document.getElementById('pdfMode')||{}).value||'meeting'; buildPrintView(mode); setTimeout(()=>window.print(), 60); }
@@ -2508,7 +2508,7 @@ function buildMonitorView(o){
   const chatHtml = msgs.length ? msgs.map(mm=>{ const txt=String(mm.content||''); return `<div class="pv-chat"><span class="pv-chat-role">${mm.role==='user'?'Q':'A'}</span> ${escH(txt.slice(0,360))}${txt.length>360?'…':''}</div>`; }).join('') : '<p class="pv-narr small">No questions asked in the chat this session.</p>';
   document.getElementById('print-view').innerHTML=`
     <div class="pv-head">
-      <div class="pv-kicker">Interactive Portfolio Tool · Monitoring snapshot</div>
+      <div class="pv-kicker">Folio · Monitoring snapshot</div>
       <h1>Monitoring Snapshot</h1>
       <div class="pv-sub">${stamp} · values in ${displayCcy}</div>
     </div>
@@ -2536,7 +2536,7 @@ loadCPI();
 renderAll(); drawCharts(); initWiChips(); populateModels(); applyHostCopy(); renderFredState();
 loadLastSession(); renderSessionDelta(); renderStaleBanner(); initAskFab();
 initSidebar(); renderDrawerLog(); initScenarioBtns();
-(function(){ const fv=document.getElementById('footVersion'); if(fv) fv.textContent='Portfolio Tool v'+VERSION; })();
+(function(){ const fv=document.getElementById('footVersion'); if(fv) fv.textContent='Folio v'+VERSION; })();
 if(PROD){ document.querySelectorAll('.dev-only').forEach(el=>{ el.style.display='none'; }); }
 window.addEventListener('beforeunload', saveSessionSnapshot);
 document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='hidden') saveSessionSnapshot(); });
