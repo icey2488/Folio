@@ -2553,10 +2553,13 @@ loadLastSession(); renderSessionDelta(); renderStaleBanner(); initAskFab();
 initSidebar(); renderDrawerLog(); initScenarioBtns();
 (function(){
   const fv=document.getElementById('footVersion'); if(fv) fv.textContent='Folio v'+VERSION;
-  const bs=document.getElementById('buildStamp');
-  if(bs){ bs.innerHTML = (COMMIT==='dev')
-    ? 'Folio v'+VERSION+' · dev'
-    : 'Folio v'+VERSION+' · <a href="'+REPO+'/commit/'+COMMIT+'" target="_blank" rel="noopener">'+COMMIT+'</a>'; }
+  function stampBuild(){
+    const bs=document.getElementById('buildStamp');
+    if(bs){ bs.innerHTML = (COMMIT==='dev')
+      ? 'Folio v'+VERSION+' · dev'
+      : 'Folio v'+VERSION+' · <a href="'+REPO+'/commit/'+COMMIT+'" target="_blank" rel="noopener">'+COMMIT+'</a>'; }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',stampBuild); else stampBuild();
 })();
 if(PROD){ document.querySelectorAll('.dev-only').forEach(el=>{ el.style.display='none'; }); }
 window.addEventListener('beforeunload', saveSessionSnapshot);
