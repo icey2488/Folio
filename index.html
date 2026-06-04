@@ -197,6 +197,10 @@
      so open its tooltips downward into the table body instead of up past the clipped edge */
   thead th .info:hover::after{top:155%;bottom:auto;}
   thead th .info:hover::before{top:155%;bottom:auto;transform:translate(-50%,-100%);border-top-color:transparent;border-bottom-color:var(--gold-dim);}
+  thead th:nth-child(1) .info:hover::after,
+  thead th:nth-child(2) .info:hover::after{left:0;right:auto;transform:none;}
+  thead th:nth-child(10) .info:hover::after,
+  thead th:nth-child(11) .info:hover::after{left:auto;right:0;transform:none;}
   .dev-banner{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(90deg,#7a5b16,#9a7b2e);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.05em;display:flex;align-items:center;justify-content:center;gap:16px;padding:9px 14px;box-shadow:0 2px 18px rgba(0,0,0,0.45);}
   .dev-banner button{background:rgba(0,0,0,0.35);color:#fff;border:1px solid rgba(255,255,255,0.45);border-radius:6px;font-family:inherit;font-size:11px;padding:4px 12px;cursor:pointer;}
   .dev-banner button:hover{background:rgba(0,0,0,0.55);}
@@ -228,7 +232,8 @@
   h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,5.5vw,60px);line-height:1.03;letter-spacing:-0.015em;margin-bottom:14px;}
   h1 em{font-style:italic;color:var(--gold);}
   .sub{color:var(--muted);font-size:15.5px;max-width:660px;}
-  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:34px;}
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:visible;margin-top:34px;}
+  .metric:first-child{border-top-left-radius:10px;} .metric:last-child{border-bottom-right-radius:10px;}
   .metric{background:var(--panel);padding:18px 20px;}
   .metric .lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--faint);}
   .metric .val{font-family:'Fraunces',serif;font-size:27px;font-weight:500;margin-top:6px;}
