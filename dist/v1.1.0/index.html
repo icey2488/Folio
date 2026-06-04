@@ -193,6 +193,10 @@
   .info:hover::after{content:attr(data-tip);position:absolute;bottom:150%;left:50%;transform:translateX(-50%);width:248px;max-width:248px;background:var(--panel);border:1px solid var(--gold-dim);border-radius:8px;padding:10px 12px;font-size:11.5px;line-height:1.55;color:var(--text);z-index:80;box-shadow:0 12px 34px rgba(0,0,0,0.55);white-space:normal;text-align:left;letter-spacing:0;text-transform:none;font-weight:400;pointer-events:none;}
   .info:hover::before{content:'';position:absolute;bottom:150%;left:50%;transform:translate(-50%,98%);border:6px solid transparent;border-top-color:var(--gold-dim);z-index:80;}
   thead th .info{font-weight:600;}
+  /* header row sits inside an overflow-x:auto wrapper (which clips overflow-y too),
+     so open its tooltips downward into the table body instead of up past the clipped edge */
+  thead th .info:hover::after{top:155%;bottom:auto;}
+  thead th .info:hover::before{top:155%;bottom:auto;transform:translate(-50%,-100%);border-top-color:transparent;border-bottom-color:var(--gold-dim);}
   .dev-banner{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(90deg,#7a5b16,#9a7b2e);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.05em;display:flex;align-items:center;justify-content:center;gap:16px;padding:9px 14px;box-shadow:0 2px 18px rgba(0,0,0,0.45);}
   .dev-banner button{background:rgba(0,0,0,0.35);color:#fff;border:1px solid rgba(255,255,255,0.45);border-radius:6px;font-family:inherit;font-size:11px;padding:4px 12px;cursor:pointer;}
   .dev-banner button:hover{background:rgba(0,0,0,0.55);}
@@ -219,6 +223,8 @@
   .pos{color:var(--pos);} .neg{color:var(--neg);}
   header.mast{padding:56px 0 30px;border-bottom:1px solid var(--line);margin-bottom:36px;}
   .kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+  .brand{font-family:'Fraunces',Georgia,serif;font-size:23px;font-weight:600;color:var(--gold);letter-spacing:0.01em;margin-bottom:12px;display:flex;align-items:center;gap:9px;}
+  .brand::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--panel-2);}
   h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,5.5vw,60px);line-height:1.03;letter-spacing:-0.015em;margin-bottom:14px;}
   h1 em{font-style:italic;color:var(--gold);}
   .sub{color:var(--muted);font-size:15.5px;max-width:660px;}
@@ -393,7 +399,7 @@
 </head>
 <body>
 <nav id="sidebar" class="sidebar" aria-label="Sections">
-  <div class="sb-brand">Portfolio Tool</div>
+  <div class="sb-brand">Folio</div>
   <a class="sb-item" data-target="holdings" onclick="navTo('holdings')"><span class="sb-no">01</span><span class="sb-lbl">Holdings</span></a>
   <a class="sb-item" data-target="xray" onclick="navTo('xray')"><span class="sb-no">02</span><span class="sb-lbl">X-Ray</span></a>
   <a class="sb-item" data-target="case" onclick="navTo('case')"><span class="sb-no">03</span><span class="sb-lbl">The Case</span></a>
@@ -416,6 +422,7 @@
         <option value="mono">Discord</option>
       </select>
     </div>
+    <div class="brand">Folio</div>
     <div class="kicker">Interactive Portfolio Tool</div>
     <h1>Concentrated by accident.<br><em>Diversify on purpose.</em></h1>
     <p class="sub">A live, editable portfolio workbench. It opens with a sample book priced on real quotes through June 3, 2026, replace it with your own holdings, in any currency, then refresh prices, model a rebalance, run what-ifs, record sales, and ask the AI of your choice about anything you are unsure of.</p>
@@ -735,7 +742,7 @@
   <section id="privacyNote">
     <div class="sec-head"><span class="sec-no">09</span><div><h2>Your Data Is Yours</h2></div></div>
     <div class="panel">
-      <p>This tool has no server, no account, and no sign-in. Everything you type or import, your holdings, cost bases, purchase dates, and yields, lives only in your own browser. When self-hosted at investing.icehunter.net it is saved to your browser's local storage on your device, so it is still there next time you visit, and it is never uploaded anywhere.</p>
+      <p>This tool has no server, no account, and no sign-in. Everything you type or import, your holdings, cost bases, purchase dates, and yields, lives only in your own browser. When self-hosted at folio.icehunter.net it is saved to your browser's local storage on your device, so it is still there next time you visit, and it is never uploaded anywhere.</p>
       <p>The site owner cannot see any of your numbers. There is no database receiving them. The only time anything leaves your browser is if you choose to use an AI feature, and then your request goes directly from your browser to the AI provider you selected (Anthropic, OpenAI, or Google) using your own key. It does not pass through the site owner.</p>
       <p class="muted" style="font-size:13px;margin-bottom:0;">If you want a clean slate, clearing your browser data for the site removes everything. Nothing is retained elsewhere.</p>
     </div>
@@ -756,7 +763,7 @@
     <span class="fdot">·</span>
     <a class="flink" onclick="toggleChangelog()">What's new</a>
     <span class="fdot">·</span>
-    <a class="flink" href="https://investing.icehunter.net" target="_blank" rel="noopener">investing.icehunter.net</a>
+    <a class="flink" href="https://folio.icehunter.net" target="_blank" rel="noopener">folio.icehunter.net</a>
   </div>
 </div>
 
