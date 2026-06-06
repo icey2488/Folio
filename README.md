@@ -4,7 +4,7 @@ Personal portfolio tracker. No accounts, no servers, no ads.
 Data stays in your browser.
 
 **Live:** https://folio.icehunter.net
-**Current version:** v1.2.0
+**Current version:** v1.2.1
 
 ## Features
 - Tax-lot tracking (FIFO/LIFO/specific lot) with wash-sale detection
@@ -21,7 +21,14 @@ Data stays in your browser.
 
 ## Versioned URLs
 - Latest: https://folio.icehunter.net
+- v1.2.1: https://folio.icehunter.net/dist/v1.2.1/
 - v1.2.0: https://folio.icehunter.net/dist/v1.2.0/
+
+## Changelog
+- **v1.2.1** — Mobile hamburger nav overlay (below 1080px); class-based Ask-AI
+  FAB visibility with orientation/resize reconciliation; CSP comment documenting
+  the deliberately-blocked Cloudflare beacon.
+- **v1.2.0** — Build stamp, versioned dist snapshots, changelog + README.
 
 ## Build stamp
 Each deploy substitutes the short commit SHA into a `__COMMIT__` placeholder
