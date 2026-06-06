@@ -1,10 +1,12 @@
 # Folio
 
+> *There are plenty of people who will pay me to install pipes. But everyone deserves running water.*
+
 Personal portfolio tracker. No accounts, no servers, no ads.
 Data stays in your browser.
 
 **Live:** https://folio.icehunter.net
-**Current version:** v1.2.2
+**Current version:** v1.2.3
 
 ## Features
 - Tax-lot tracking (FIFO/LIFO/specific lot) with wash-sale detection
@@ -21,11 +23,13 @@ Data stays in your browser.
 
 ## Versioned URLs
 - Latest: https://folio.icehunter.net
+- v1.2.3: https://folio.icehunter.net/dist/v1.2.3/
 - v1.2.2: https://folio.icehunter.net/dist/v1.2.2/
 - v1.2.1: https://folio.icehunter.net/dist/v1.2.1/
 - v1.2.0: https://folio.icehunter.net/dist/v1.2.0/
 
 ## Changelog
+- **v1.2.3** — Added project philosophy tagline to README.
 - **v1.2.2** — Moved the build stamp out of the floating corner badge into the
   hamburger overlay and the desktop sidebar footer; the floating `.buildstamp`
   is now hidden.
