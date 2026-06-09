@@ -6,7 +6,7 @@ Personal portfolio tracker. No accounts, no servers, no ads.
 Data stays in your browser.
 
 **Live:** https://folio.icehunter.net
-**Current version:** v1.2.4
+**Current version:** v1.3.0
 
 ## Features
 - Tax-lot tracking (FIFO/LIFO/specific lot) with wash-sale detection
@@ -23,6 +23,7 @@ Data stays in your browser.
 
 ## Versioned URLs
 - Latest: https://folio.icehunter.net
+- v1.3.0: https://folio.icehunter.net/dist/v1.3.0/
 - v1.2.4: https://folio.icehunter.net/dist/v1.2.4/
 - v1.2.3: https://folio.icehunter.net/dist/v1.2.3/
 - v1.2.2: https://folio.icehunter.net/dist/v1.2.2/
@@ -30,6 +31,8 @@ Data stays in your browser.
 - v1.2.0: https://folio.icehunter.net/dist/v1.2.0/
 
 ## Changelog
+- **v1.3.0** — Unified persistence into an atomic serialize/hydrate boundary;
+  prerequisite for file-sync and encryption.
 - **v1.2.4** — Inflation data now loads through your selected AI engine instead
   of a FRED API key. The direct FRED fetch never worked from the browser
   (cross-origin blocked) and would have exposed the key, so it is gone.
